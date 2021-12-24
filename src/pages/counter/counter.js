@@ -15,7 +15,7 @@ const Counter = (props) => {
 
   return (
     <Fragment>
-      <h1>Counter</h1>
+      <h1>Counter is here</h1>
       <div className={styles.counter}>
         <Button onClick={decrementHandler}>-</Button>
         <h2>{counter}</h2>
