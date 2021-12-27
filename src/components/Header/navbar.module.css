@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #b1d0e0;
+  display: flex;
+  justify-content: center;
+}
+
+.navlink {
+  padding: 1rem;
+  background-color: #1a374d;
+  margin: 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.active_navlink {
+  background-color: orange;
+}
+
+.navlink:hover {
+  background-color: #406882;
+}
