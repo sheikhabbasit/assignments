@@ -7,7 +7,7 @@ import styles from "./SignUp.module.css";
 const SignUp = (props) => {
   const params = useRouteMatch();
   console.log(params);
-  //
+
   // Registering refs
   const userNameValue = useRef();
   const emailValue = useRef();

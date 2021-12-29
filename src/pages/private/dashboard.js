@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import Navbar from "../../components/Header/navbar";
-// import styles from './module.css'
 
 const Dashboard = (props) => {
   return (

@@ -9,7 +9,6 @@ const Login = (props) => {
   const receivedEmailID = useRef();
   const receivedPassword = useRef();
   const users = JSON.parse(localStorage.getItem("usersByEmail"));
-  // console.log(users);
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -20,9 +19,10 @@ const Login = (props) => {
     if (users[rxEmail]) {
       if (user.password === rxPassword) {
         console.log("Logged in");
-        // console.log(user);
       }
       history.push("/dashboard");
+    } else {
+      alert("User not found!");
     }
   };
   return (
