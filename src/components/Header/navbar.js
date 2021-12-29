@@ -18,6 +18,13 @@ const Navbar = (props) => {
       >
         Redux Counter
       </NavLink>
+      <NavLink
+        className={styles.navlink}
+        activeClassName={styles.active_navlink}
+        to="/demo-social-media"
+      >
+        Social Site
+      </NavLink>
     </div>
   );
 };

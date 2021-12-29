@@ -1,0 +1,52 @@
+h1 {
+  color: #1a374d;
+}
+
+.form {
+  margin: 2rem;
+}
+
+.form label {
+  font-weight: bold;
+  padding: 1rem;
+  font-size: large;
+  color: #406882;
+}
+
+.form input {
+  padding: 0.5rem;
+  border-radius: 10px;
+  width: 50%;
+  margin: 0.5rem auto 1rem;
+  border-width: 0;
+}
+
+.form button {
+  padding: 0.5rem 2rem;
+  background-color: #1a374d;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+}
+
+.form button:hover {
+  background-color: #406882;
+}
+
+.link {
+  background-color: #1a374d;
+  padding: 0.3rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: smaller;
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    margin: 0.3rem;
+  }
+  .form input {
+    width: 90%;
+  }
+}
