@@ -19,7 +19,9 @@ const Login = (props) => {
     if (users[rxEmail]) {
       if (user.password === rxPassword) {
         console.log("Logged in");
-        history.push("/dashboard");
+        history.push("/demo-social-media/dashboard");
+      } else {
+        alert("Wrong Password");
       }
     } else {
       alert("User not found!");

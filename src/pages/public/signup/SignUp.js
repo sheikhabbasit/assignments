@@ -1,13 +1,10 @@
 import React, { Fragment, useRef } from "react";
 import Card from "../../../components/Card/Card";
 import Navbar from "../../../components/Header/navbar";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./SignUp.module.css";
 
 const SignUp = (props) => {
-  const params = useRouteMatch();
-  console.log(params);
-
   // Registering refs
   const userNameValue = useRef();
   const emailValue = useRef();
@@ -45,10 +42,6 @@ const SignUp = (props) => {
       passwordValue.current.value = "";
     }
   };
-
-  // const renderLoginPage = () => {
-  //   history.push("/login");
-  // };
 
   return (
     <Fragment>
