@@ -1,12 +1,13 @@
 import React, { Fragment, useState, useContext } from "react";
 import Navbar from "../../components/Header/navbar";
+import { AuthContext } from "../../auth/AuthContext";
 import Card from "../../components/Card/Card";
 import { useFormik } from "formik";
 import Loader from "react-loader-spinner";
 import styles from "./dashboard.module.css";
 
 const Dashboard = (props) => {
-  const context = useContext();
+  const context = useContext(AuthContext);
   console.log(context.darkModeOn);
   // ImagesArray stores the images that we receive from api
   const [imagesArray, setImagesArray] = useState([]);
@@ -76,7 +77,9 @@ const Dashboard = (props) => {
         {dataLoading && (
           <Fragment>
             <Loader type="Puff" color="#1a374d" height={50} width={50} />
-            <p>Loading...</p>
+            <p className={context.darkModeOn ? styles.dark_dashboard : ""}>
+              Loading...
+            </p>
           </Fragment>
         )}
         {/* Shows error */}
@@ -93,7 +96,13 @@ const Dashboard = (props) => {
           ))}
           {/* This shows when there's no data to show */}
           {!dataLoaded && (
-            <h3 className={styles.h3}>Nothing to show here. Try searching!</h3>
+            <h3
+              className={`${styles.h3} ${
+                context.darkModeOn ? styles.dark_dashboard : ""
+              }`}
+            >
+              Nothing to show here. Try searching!
+            </h3>
           )}
         </div>
       </Card>

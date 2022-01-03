@@ -33,6 +33,9 @@ h1 {
   background-color: #406882;
 }
 
+.dark_login {
+  color: #d6e5fa;
+}
 .link {
   background-color: #1a374d;
   padding: 0.3rem 1.5rem;

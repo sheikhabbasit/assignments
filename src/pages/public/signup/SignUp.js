@@ -1,10 +1,12 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useContext } from "react";
 import Card from "../../../components/Card/Card";
 import Navbar from "../../../components/Header/navbar";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./SignUp.module.css";
+import { AuthContext } from "../../../auth/AuthContext";
 
 const SignUp = (props) => {
+  const context = useContext(AuthContext);
   const history = useHistory();
 
   // Registering refs
@@ -51,7 +53,9 @@ const SignUp = (props) => {
     <Fragment>
       <Navbar />
       <Card className={styles.card}>
-        <h1>Sign Up</h1>
+        <h1 className={context.darkModeOn ? styles.dark_signup : ""}>
+          Sign Up
+        </h1>
         <form className={styles.form} onSubmit={signUpHandler}>
           <label htmlFor="username">Username:</label>
           <br></br>
@@ -68,7 +72,9 @@ const SignUp = (props) => {
           <br></br>
           <button type="submit">Submit</button>
         </form>
-        <h4>Already a user?</h4>
+        <h4 className={context.darkModeOn ? styles.dark_signup : ""}>
+          Already a user?
+        </h4>
         <Link className={styles.link} to="/demo-social-media/login">
           Login
         </Link>
