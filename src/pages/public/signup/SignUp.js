@@ -1,10 +1,12 @@
 import React, { Fragment, useRef } from "react";
 import Card from "../../../components/Card/Card";
 import Navbar from "../../../components/Header/navbar";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "./SignUp.module.css";
 
 const SignUp = (props) => {
+  const history = useHistory();
+
   // Registering refs
   const userNameValue = useRef();
   const emailValue = useRef();
@@ -40,6 +42,8 @@ const SignUp = (props) => {
       emailValue.current.value = "";
       userNameValue.current.value = "";
       passwordValue.current.value = "";
+
+      history.push("/demo-social-media/login");
     }
   };
 
