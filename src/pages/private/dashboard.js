@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import Navbar from "../../components/Header/navbar";
 import Card from "../../components/Card/Card";
 import { useFormik } from "formik";
@@ -6,6 +6,8 @@ import Loader from "react-loader-spinner";
 import styles from "./dashboard.module.css";
 
 const Dashboard = (props) => {
+  const context = useContext();
+  console.log(context.darkModeOn);
   // ImagesArray stores the images that we receive from api
   const [imagesArray, setImagesArray] = useState([]);
   // When data is fetching, with the help of this state, we show a spinner
