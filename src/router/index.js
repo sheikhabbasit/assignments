@@ -26,7 +26,7 @@ const AppRouter = (props) => {
         <Route exact path="/demo-social-media">
           <SocialMedia />
         </Route>
-        <Route exact path="/dashboard">
+        <Route exact path="/demo-social-media/dashboard">
           <Dashboard />
         </Route>
         <Route exact path="/demo-social-media/sign-up">
