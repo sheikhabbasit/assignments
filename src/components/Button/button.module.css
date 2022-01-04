@@ -1,14 +1,19 @@
 .button {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   margin: auto 1rem;
-  background-color: #1a374d;
-  color: white;
-  font-size: larger;
+  /* font-size: large; */
   text-decoration: none;
   border-style: none;
   border-radius: 10px;
 }
-
+.button_light {
+  background-color: #1a374d;
+  color: white;
+}
+.button_dark {
+  background-color: white;
+  color: black;
+}
 .button:hover {
   background-color: #406882;
 }

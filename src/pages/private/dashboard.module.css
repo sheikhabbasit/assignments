@@ -31,6 +31,10 @@
   grid-column-end: 4;
   color: #1a374d;
 }
+
+.dark_dashboard {
+  color: #d6e5fa;
+}
 @media screen and (max-width: 1030px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);

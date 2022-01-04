@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../auth/AuthContext";
 import styles from "./Card.module.css";
 const Card = (props) => {
-  return <div className={styles.card}>{props.children}</div>;
+  const context = useContext(AuthContext);
+  return (
+    <div
+      className={`${styles.card} ${context.darkModeOn ? styles.card_dark : ""}`}
+    >
+      {props.children}
+    </div>
+  );
 };
 export default Card;
