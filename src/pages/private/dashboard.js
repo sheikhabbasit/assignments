@@ -16,8 +16,7 @@ const Dashboard = (props) => {
   const [dataLoading, setDataLoading] = useState(false);
   // Stores error in case we have it
   const [error, setError] = useState(false);
-  // Checks if data is loaded
-  const [dataLoaded, setDataLoaded] = useState(false);
+
   // Formik
   const formik = useFormik({
     initialValues: {
@@ -46,9 +45,6 @@ const Dashboard = (props) => {
       setImagesArray(data.hits);
       // Data finished loading, we set this to false to stop showing loader
       setDataLoading(false);
-
-      // Sets dataLoaded to true so we can remove the message that shows when there's no data
-      setDataLoaded(true);
     } catch (err) {
       // Sets error state to true and shows error on screen
       setError(true);
