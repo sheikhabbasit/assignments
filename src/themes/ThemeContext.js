@@ -1,8 +1,8 @@
 import React, { createContext, useState } from "react";
 
-export const AuthContext = createContext();
+export const ThemeContext = createContext();
 
-function AuthContextProvider(props) {
+function ThemeContextProvider(props) {
   const [darkModeOn, setDarkModeOn] = useState(false);
   //
   const toggleDarkMode = () => {
@@ -12,7 +12,9 @@ function AuthContextProvider(props) {
   const value = { darkModeOn, toggleDarkMode };
 
   return (
-    <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
+    <ThemeContext.Provider value={value}>
+      {props.children}
+    </ThemeContext.Provider>
   );
 }
-export default AuthContextProvider;
+export default ThemeContextProvider;

@@ -17,13 +17,22 @@
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(100px, auto);
   gap: 10px 20px;
 }
+.grid_item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
 .image_item {
-  justify-self: center;
-  height: max-content;
+  margin: auto;
+  margin-bottom: 0.5rem;
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .h3 {
@@ -47,10 +56,10 @@
 
 @media screen and (max-width: 720px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
   .h3 {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 2;
   }
 }
