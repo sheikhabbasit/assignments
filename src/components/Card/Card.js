@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../auth/AuthContext";
+import React from "react";
+import useTheme from "../../hooks/useTheme";
 import styles from "./Card.module.css";
 const Card = (props) => {
-  const context = useContext(AuthContext);
+  const darkTheme = useTheme();
+
   return (
-    <div
-      className={`${styles.card} ${context.darkModeOn ? styles.card_dark : ""}`}
-    >
+    <div className={`${styles.card} ${darkTheme ? styles.card_dark : ""}`}>
       {props.children}
     </div>
   );

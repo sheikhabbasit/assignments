@@ -5,15 +5,15 @@ import { Provider } from "react-redux";
 import store from "./redux";
 import "./index.css";
 import App from "./App";
-import AuthContextProvider from "./auth/AuthContext";
+import ThemeContextProvider from "./themes/ThemeContext";
 
 ReactDOM.render(
   <Provider store={store}>
-    <AuthContextProvider>
+    <ThemeContextProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </AuthContextProvider>
+    </ThemeContextProvider>
   </Provider>,
   document.getElementById("root")
 );

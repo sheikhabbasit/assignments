@@ -1,11 +1,12 @@
-import React, { Fragment, useRef, useContext } from "react";
+import React, { Fragment, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { AuthContext } from "../../../auth/AuthContext";
 import Card from "../../../components/Card/Card";
 import Navbar from "../../../components/Header/navbar";
+import useTheme from "../../../hooks/useTheme";
 import styles from "./Login.module.css";
+
 const Login = (props) => {
-  const context = useContext(AuthContext);
+  const darkTheme = useTheme();
   let history = useHistory();
 
   const receivedEmailID = useRef();
@@ -34,9 +35,7 @@ const Login = (props) => {
       <Navbar />
       <Card>
         <form className={styles.form} onSubmit={loginHandler}>
-          <h1 className={context.darkModeOn ? styles.dark_login : ""}>
-            Login Page
-          </h1>
+          <h1 className={darkTheme ? styles.dark_login : ""}>Login Page</h1>
           <label htmlFor="email">Email:</label>
           <br></br>
           <input required ref={receivedEmailID} id="email" type="email" />

@@ -1,15 +1,16 @@
-import React, { Fragment, useState, useContext } from "react";
+import React, { Fragment, useState } from "react";
 import FileSaver from "file-saver";
 import Button from "../../components/Button/button";
 import Navbar from "../../components/Header/navbar";
-import { AuthContext } from "../../auth/AuthContext";
 import Card from "../../components/Card/Card";
 import { useFormik } from "formik";
 import Loader from "react-loader-spinner";
 import styles from "./dashboard.module.css";
+import useTheme from "../../hooks/useTheme";
 
 const Dashboard = (props) => {
-  const context = useContext(AuthContext);
+  const darkTheme = useTheme();
+
   // ImagesArray stores the images that we receive from api
   const [imagesArray, setImagesArray] = useState([]);
   // When data is fetching, with the help of this state, we show a spinner
@@ -53,15 +54,15 @@ const Dashboard = (props) => {
 
   // Helps to download a file
   const downloadHandler = (url) => {
-    FileSaver.saveAs(url, url.slice(-15));
+    const photoURL = url.split("/");
+    const fileName = photoURL[photoURL.length - 1];
+    FileSaver.saveAs(url, fileName);
   };
 
   return (
     <Fragment>
       <Navbar />
-      <h1 className={context.darkModeOn ? styles.dark_dashboard : ""}>
-        Dashboard
-      </h1>
+      <h1 className={darkTheme ? styles.dark_dashboard : ""}>Dashboard</h1>
       <Card>
         <form onSubmit={formik.handleSubmit} className={styles.form}>
           <input
@@ -81,9 +82,7 @@ const Dashboard = (props) => {
         {dataLoading && (
           <Fragment>
             <Loader type="Puff" color="#1a374d" height={50} width={50} />
-            <p className={context.darkModeOn ? styles.dark_dashboard : ""}>
-              Loading...
-            </p>
+            <p className={darkTheme ? styles.dark_dashboard : ""}>Loading...</p>
           </Fragment>
         )}
         {/* Shows error */}
@@ -108,7 +107,7 @@ const Dashboard = (props) => {
           {imagesArray.length === 0 ? (
             <h3
               className={`${styles.h3} ${
-                context.darkModeOn ? styles.dark_dashboard : ""
+                darkTheme ? styles.dark_dashboard : ""
               }`}
             >
               No search results were found!

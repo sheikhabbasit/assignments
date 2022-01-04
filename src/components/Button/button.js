@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../auth/AuthContext";
+import React from "react";
+import useTheme from "../../hooks/useTheme";
 import styles from "./button.module.css";
 
 const Button = (props) => {
-  const context = useContext(AuthContext);
+  const darkTheme = useTheme();
   return (
     <button
       className={`${styles.button} ${
-        context.darkModeOn ? styles.button_dark : styles.button_light
+        darkTheme ? styles.button_dark : styles.button_light
       }`}
       onClick={props.onClick}
     >
