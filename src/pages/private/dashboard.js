@@ -1,4 +1,6 @@
 import React, { Fragment, useState, useContext } from "react";
+import FileSaver from "file-saver";
+import Button from "../../components/Button/button";
 import Navbar from "../../components/Header/navbar";
 import { AuthContext } from "../../auth/AuthContext";
 import Card from "../../components/Card/Card";
@@ -8,7 +10,6 @@ import styles from "./dashboard.module.css";
 
 const Dashboard = (props) => {
   const context = useContext(AuthContext);
-  console.log(context.darkModeOn);
   // ImagesArray stores the images that we receive from api
   const [imagesArray, setImagesArray] = useState([]);
   // When data is fetching, with the help of this state, we show a spinner
@@ -43,7 +44,6 @@ const Dashboard = (props) => {
       const data = await response.json();
       // Sets the imagesArray to the array of images we received
       setImagesArray(data.hits);
-
       // Data finished loading, we set this to false to stop showing loader
       setDataLoading(false);
 
@@ -54,10 +54,18 @@ const Dashboard = (props) => {
       setError(true);
     }
   };
+
+  // Helps to download a file
+  const downloadHandler = (url) => {
+    FileSaver.saveAs(url, url.slice(-15));
+  };
+
   return (
     <Fragment>
       <Navbar />
-      <h1>Dashboard</h1>
+      <h1 className={context.darkModeOn ? styles.dark_dashboard : ""}>
+        Dashboard
+      </h1>
       <Card>
         <form onSubmit={formik.handleSubmit} className={styles.form}>
           <input
@@ -87,22 +95,33 @@ const Dashboard = (props) => {
         {/* Displays images */}
         <div className={styles.grid}>
           {imagesArray.map((image) => (
-            <img
-              className={styles.image_item}
-              key={image.id}
-              src={image.previewURL}
-              alt="img"
-            />
+            // it is now a div instead of single image, holds img and btn
+            <div className={styles.grid_item} key={image.id}>
+              <a href={image.largeImageURL} target="_blank" rel="noreferrer">
+                <img
+                  className={styles.image_item}
+                  src={image.previewURL}
+                  alt="img"
+                />
+              </a>
+              {/* <a href={image.webformatURL} download="file">
+                Download
+              </a> */}
+              <Button onClick={() => downloadHandler(image.largeImageURL)}>
+                Download
+              </Button>
+            </div>
           ))}
-          {/* This shows when there's no data to show */}
-          {!dataLoaded && (
+          {imagesArray.length === 0 ? (
             <h3
               className={`${styles.h3} ${
                 context.darkModeOn ? styles.dark_dashboard : ""
               }`}
             >
-              Nothing to show here. Try searching!
+              No search results were found!
             </h3>
+          ) : (
+            ""
           )}
         </div>
       </Card>
