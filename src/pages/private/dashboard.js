@@ -100,9 +100,6 @@ const Dashboard = (props) => {
                   alt="img"
                 />
               </a>
-              {/* <a href={image.webformatURL} download="file">
-                Download
-              </a> */}
               <Button onClick={() => downloadHandler(image.largeImageURL)}>
                 Download
               </Button>
