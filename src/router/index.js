@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Counter from "../pages/counter/counter";
 import CounterRedux from "../pages/counterWithRedux/counterWithRedux";
 import Error404 from "../pages/Error404";
-import Dashboard from "../pages/private/dashboard";
+import Dashboard from "../pages/private/Dashboard/dashboard";
 import SocialMedia from "../pages/public";
 import Login from "../pages/public/login/Login";
 import SignUp from "../pages/public/signup/SignUp";

@@ -4,7 +4,7 @@ import useTheme from "../../hooks/useTheme";
 import { ThemeContext } from "../../themes/ThemeContext";
 import Button from "../Button/button";
 import styles from "./navbar.module.css";
-const Navbar = (props) => {
+const Navbar = () => {
   const darkTheme = useTheme();
   const context = useContext(ThemeContext);
   const toggleDarkMode = () => {
